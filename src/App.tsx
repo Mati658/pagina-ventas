@@ -3,6 +3,8 @@ import { lazy, Suspense } from 'react'
 import './App.css'
 import {  BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/header/Header'
+import PageProductos from './pages/productos/PageProductos';
+import PageProducto from './pages/producto/PageProducto';
 
 function App() {
 
@@ -17,6 +19,10 @@ function App() {
           <Header/>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/productos/:categoria/:prod" element={<PageProductos />} />
+            
+            {/* agregar el id en el path */}
+            <Route path="/producto/:prod" element={<PageProducto />} />
         
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

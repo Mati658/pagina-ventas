@@ -1,0 +1,32 @@
+.productos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .container-productos {
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 25px 0px rgba(120, 120, 120, 1);
+
+    .titulo {
+      margin-bottom: 20px;
+    }
+
+    .fila-producto {
+      position: relative;
+      background-color: white;
+
+      display: flex;
+      flex-direction: row;
+      height: 100px;
+      padding: 10px;
+    }
+
+    .img-prodcuto {
+      height: 100px;
+    }
+  }
+}

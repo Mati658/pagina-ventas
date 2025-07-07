@@ -25,228 +25,228 @@
   width: 100%;
   height: 10%;
   overflow-x: auto;
-}
 
-.container-header {
-  /* left: 2%; */
-  width: 100%;
-  display: flex;
-  position: relative;
-  padding-inline-start: 1.5%;
-}
-
-.logo {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-direction: row;
-  /* width: 100%; */
-  margin-left: 2%;
-}
-
-.titulo {
-  /* align-self: center; */
-  color: white;
-  display: flex;
-  position: relative;
-}
-
-.img {
-  display: flex;
-  position: relative;
-  width: 400px;
-  height: 70px;
-  cursor: pointer;
-  /* left: 2%; */
-}
-
-.container-right {
-  display: flex;
-  width: 100%;
-  gap: 10px;
-  justify-content: end;
-  padding-inline-end: 2.5%;
-  flex-direction: row-reverse;
-  align-items: center;
-}
-
-.btn-theme {
-  display: flex;
-  position: relative;
-  align-items: center;
-  /* justify-items: end; */
-  /* margin-left: 2%; */
-}
-
-.btn-header {
-  background-color: white;
-  border-radius: 50px;
-  /* height: 50px; */
-  font-size: 1.2rem;
-  padding: 3px 5px;
-  border-color: transparent;
-  transition: 100ms ease;
-  cursor: pointer;
-}
-
-.btn-header:active {
-  transform: translateY(-5px);
-}
-
-/* =========================== */
-
-.container-menu {
-  display: none;
-}
-
-.menu {
-  display: none;
-}
-
-@media (max-width: 800px) {
-  .container-menu {
+  .container-header {
+    /* left: 2%; */
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
-    width: 90%;
+    position: relative;
+    padding-inline-start: 1.5%;
   }
 
-  /* From Uiverse.io by vinodjangid07 */
-  #checkbox {
+  .logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: row;
+    /* width: 100%; */
+    margin-left: 2%;
+  }
+
+  .titulo {
+    /* align-self: center; */
+    color: white;
+    display: flex;
+    position: relative;
+  }
+
+  .img {
+    display: flex;
+    position: relative;
+    width: 400px;
+    height: 70px;
+    cursor: pointer;
+    /* left: 2%; */
+  }
+
+  .container-right {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: end;
+    padding-inline-end: 2.5%;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .btn-theme {
+    display: flex;
+    position: relative;
+    align-items: center;
+    /* justify-items: end; */
+    /* margin-left: 2%; */
+  }
+
+  .btn-header {
+    background-color: white;
+    border-radius: 50px;
+    /* height: 50px; */
+    font-size: 1.2rem;
+    padding: 3px 5px;
+    border-color: transparent;
+    transition: 100ms ease;
+    cursor: pointer;
+  }
+
+  .btn-header:active {
+    transform: translateY(-5px);
+  }
+
+  /* =========================== */
+
+  .container-menu {
     display: none;
   }
 
-  .toggle {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition-duration: 0.5s;
-  }
-
-  .bars {
-    width: 100%;
-    height: 4px;
-    background-color: #0b0b0b;
-    border-radius: 4px;
-  }
-
-  #bar2 {
-    transition-duration: 0.8s;
-  }
-
-  #bar1,
-  #bar3 {
-    width: 70%;
-  }
-
-  #checkbox:checked + .toggle .bars {
-    position: absolute;
-    transition-duration: 0.5s;
-  }
-
-  #checkbox:checked + .toggle #bar2 {
-    transform: scaleX(0);
-    transition-duration: 0.5s;
-  }
-
-  #checkbox:checked + .toggle #bar1 {
-    width: 100%;
-    transform: rotate(45deg);
-    transition-duration: 0.5s;
-  }
-
-  #checkbox:checked + .toggle #bar3 {
-    width: 100%;
-    transform: rotate(-45deg);
-    transition-duration: 0.5s;
-  }
-
-  #checkbox:checked + .toggle {
-    transition-duration: 0.5s;
-    transform: rotate(180deg);
-  }
-
   .menu {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 10%;
-    right: 0;
-    background: #121212a8;
-    width: 30%;
-    height: 100%;
-    padding: 10px;
-    transform: translateX(1000px);
+    display: none;
   }
 
-  .menu button {
-    margin: 5px 0;
-  }
+  @media (max-width: 800px) {
+    .container-menu {
+      display: flex;
+      justify-content: flex-end;
+      width: 90%;
+    }
 
-  .slide-in-right {
-    -webkit-animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-      both;
-    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
+    /* From Uiverse.io by vinodjangid07 */
+    #checkbox {
+      display: none;
+    }
 
-  @-webkit-keyframes slide-in-right {
-    0% {
-      -webkit-transform: translateX(1000px);
+    .toggle {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition-duration: 0.5s;
+    }
+
+    .bars {
+      width: 100%;
+      height: 4px;
+      background-color: #0b0b0b;
+      border-radius: 4px;
+    }
+
+    #bar2 {
+      transition-duration: 0.8s;
+    }
+
+    #bar1,
+    #bar3 {
+      width: 70%;
+    }
+
+    #checkbox:checked + .toggle .bars {
+      position: absolute;
+      transition-duration: 0.5s;
+    }
+
+    #checkbox:checked + .toggle #bar2 {
+      transform: scaleX(0);
+      transition-duration: 0.5s;
+    }
+
+    #checkbox:checked + .toggle #bar1 {
+      width: 100%;
+      transform: rotate(45deg);
+      transition-duration: 0.5s;
+    }
+
+    #checkbox:checked + .toggle #bar3 {
+      width: 100%;
+      transform: rotate(-45deg);
+      transition-duration: 0.5s;
+    }
+
+    #checkbox:checked + .toggle {
+      transition-duration: 0.5s;
+      transform: rotate(180deg);
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 10%;
+      right: 0;
+      background: #121212a8;
+      width: 30%;
+      height: 100%;
+      padding: 10px;
       transform: translateX(1000px);
-      opacity: 0;
     }
-    100% {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-  @keyframes slide-in-right {
-    0% {
-      -webkit-transform: translateX(1000px);
-      transform: translateX(1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
 
-  .slide-out-right {
-    -webkit-animation: slide-out-right 0.5s
-      cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-    animation: slide-out-right 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-  }
+    .menu button {
+      margin: 5px 0;
+    }
 
-  @-webkit-keyframes slide-out-right {
-    0% {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-      opacity: 1;
+    .slide-in-right {
+      -webkit-animation: slide-in-right 0.5s
+        cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
-    100% {
-      -webkit-transform: translateX(1000px);
-      transform: translateX(1000px);
-      opacity: 0;
+
+    @-webkit-keyframes slide-in-right {
+      0% {
+        -webkit-transform: translateX(1000px);
+        transform: translateX(1000px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
-  }
-  @keyframes slide-out-right {
-    0% {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-      opacity: 1;
+    @keyframes slide-in-right {
+      0% {
+        -webkit-transform: translateX(1000px);
+        transform: translateX(1000px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
-    100% {
-      -webkit-transform: translateX(1000px);
-      transform: translateX(1000px);
-      opacity: 0;
+
+    .slide-out-right {
+      -webkit-animation: slide-out-right 0.5s
+        cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+      animation: slide-out-right 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+
+    @-webkit-keyframes slide-out-right {
+      0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: translateX(1000px);
+        transform: translateX(1000px);
+        opacity: 0;
+      }
+    }
+    @keyframes slide-out-right {
+      0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100% {
+        -webkit-transform: translateX(1000px);
+        transform: translateX(1000px);
+        opacity: 0;
+      }
     }
   }
 }

@@ -1,0 +1,15 @@
+.container-resultados {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-height: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+
+  .productos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

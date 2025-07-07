@@ -1,0 +1,33 @@
+.container-prod {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  z-index: 1;
+
+  .img {
+    height: 100px;
+  }
+
+  .nombre {
+    margin-left: 10px;
+    color: black;
+    width: 70%;
+  }
+
+  .precio {
+    color: black;
+    width: 20%;
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+
+    .svg {
+      z-index: 1000;
+      margin-top: 20px;
+      height: 30px;
+      text-align: end;
+      align-self: flex-end;
+    }
+  }
+}
