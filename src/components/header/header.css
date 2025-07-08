@@ -23,8 +23,9 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 10%;
-  overflow-x: auto;
+  height: 8%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 
   .container-header {
     /* left: 2%; */
@@ -67,14 +68,13 @@
     padding-inline-end: 2.5%;
     flex-direction: row-reverse;
     align-items: center;
-  }
 
-  .btn-theme {
-    display: flex;
-    position: relative;
-    align-items: center;
-    /* justify-items: end; */
-    /* margin-left: 2%; */
+    .perfil,
+    .carrito,
+    .admin {
+      height: 30px;
+      width: 30px;
+    }
   }
 
   .btn-header {

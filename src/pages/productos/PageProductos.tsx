@@ -8,12 +8,12 @@ export default function PageProductos() {
 
   return (
     <div className='container-page-productos'>
-        <label>{location.pathname.split('/')[2]} - {location.pathname.split('/')[3]}</label>
+        <label className='inter'>{location.pathname.split('/')[3] ? (`${location.pathname.split('/')[2]} - ${location.pathname.split('/')[3]}`) : `${location.pathname.split('/')[2]}`} </label>
         <div className='categorias'>
             <Categorias></Categorias>
         </div>
         <div className='paneles'>
-            <Resultados titulo={location.pathname.split('/')[3]} productos=''></Resultados>
+            <Resultados titulo={location.pathname.split('/')[3] ? location.pathname.split('/')[3] : location.pathname.split('/')[2]} productos=''></Resultados>
         </div>
     </div>
   )

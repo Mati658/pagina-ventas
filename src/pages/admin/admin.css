@@ -14,31 +14,12 @@
   box-sizing: border-box;
 }
 
-.container-page-productos {
+.container-page-admin {
   position: relative;
   display: flex;
-  flex-direction: row;
-  width: 95%;
+  flex-direction: column;
+  width: 80%;
   margin-top: 15vh;
-  min-height: 80vh;
   justify-self: center;
   gap: 5%;
-
-  label {
-    position: absolute;
-    color: #464646;
-    top: -30px;
-  }
-
-  .categorias {
-    min-width: 160px;
-  }
-
-  .paneles {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    min-height: 100%;
-    justify-self: center;
-  }
 }

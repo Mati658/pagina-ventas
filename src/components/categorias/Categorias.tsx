@@ -1,10 +1,7 @@
-import { useNavigate } from 'react-router-dom';
 import './categorias.css'
 import { Link } from 'react-router-dom';
 
 export default function Categorias() {
-  const navigate = useNavigate();
-
 
     let res =[
         {categoria:'Tecnologia', etiquetas:["Celulares", "Camaras", "Notebook", "CPU", "GPU", "RAM", "Mothers", "Fuentes"]},

@@ -5,6 +5,8 @@ import {  BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-
 import Header from './components/header/Header'
 import PageProductos from './pages/productos/PageProductos';
 import PageProducto from './pages/producto/PageProducto';
+import Perfil from './pages/perfil/Perfil';
+import Admin from './pages/admin/Admin';
 
 function App() {
 
@@ -20,6 +22,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/productos/:categoria/:prod" element={<PageProductos />} />
+            <Route path="/productos/:categoria" element={<PageProductos />} />
+            <Route path="/perfil" element={<Perfil />} />
+            <Route path="/admin" element={<Admin />} />
             
             {/* agregar el id en el path */}
             <Route path="/producto/:prod" element={<PageProducto />} />

@@ -2,23 +2,31 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  .container-text {
+    display: flex;
+    position: relative;
+    height: 20px;
+    .ver-todo {
+      position: absolute;
+      right: 0;
+      color: black;
+      cursor: pointer;
+    }
+  }
+
   .container-productos {
     display: flex;
     flex-direction: column;
-    overflow-x: auto;
     overflow-y: hidden;
     height: 100%;
     width: 100%;
-    box-shadow: 0px 0px 25px 0px rgba(120, 120, 120, 1);
-
-    .titulo {
-      margin-bottom: 20px;
-    }
 
     .fila-producto {
+      overflow-x: auto;
       position: relative;
       background-color: white;
-
+      border-radius: 10px;
       display: flex;
       flex-direction: row;
       height: 100px;

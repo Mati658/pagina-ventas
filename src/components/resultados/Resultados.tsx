@@ -14,11 +14,10 @@ export default function Resultados({titulo, productos}: Props) {
     <div className='container-resultados'>
         <h1 className='inter uppercase'>{titulo}</h1>
         <div className='productos'>
-        <span className='line'></span>
             {res.map((item:any)=>(
                 <>
-                    <Producto producto={item}></Producto>
                     <span className='line'></span>
+                    <Producto producto={item}></Producto>
                 </>
             ))}
         </div>
