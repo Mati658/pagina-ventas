@@ -12,10 +12,10 @@ export default function Home() {
       <div className='paneles'>
           <PanelPrincipal></PanelPrincipal>
           <div className='gap'></div>
-          <Productos titulo='Favoritos' productos='favoritos'></Productos>
-          <Productos titulo='Ofertas' productos='ofertas'></Productos>
-          <Productos titulo='Recomendados' productos='recomendados'></Productos>
-          <Productos titulo='Otros productos' productos='otros'></Productos>
+          <Productos titulo='Favoritos' productos=''></Productos>
+          <Productos titulo='Ofertas' productos=''></Productos>
+          <Productos titulo='Recomendados' productos=''></Productos>
+          <Productos titulo='Otros productos' productos=''></Productos>
 
           <div className='gap'></div>
 

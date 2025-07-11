@@ -37,19 +37,18 @@
     height: fit-content;
 
     .img-prod {
-      width: 60%;
-
+      width: 75%;
+      align-self: center;
       text-align: center;
       /* height: 50%; */
 
       img {
-        height: 50vh;
+        max-width: 100%;
       }
     }
 
     .info-basica {
-      width: 30%;
-
+      width: 20%;
       .container-btns {
         display: flex;
         flex-direction: column;

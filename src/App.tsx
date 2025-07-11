@@ -32,7 +32,7 @@ function App() {
             <Route path="/registro" element={<Register />} />
             
             {/* agregar el id en el path */}
-            <Route path="/producto/:prod" element={<PageProducto />} />
+            <Route path="/producto/:id/:prod" element={<PageProducto />} />
         
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

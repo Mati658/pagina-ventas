@@ -1,17 +1,23 @@
+import { useEffect, useState } from 'react';
+import { useDatabase } from '../../context/DatabaseContext';
 import './categorias.css'
 import { Link } from 'react-router-dom';
 
 export default function Categorias() {
 
-    let res =[
-        {categoria:'Tecnologia', etiquetas:["Celulares", "Camaras", "Notebook", "CPU", "GPU", "RAM", "Mothers", "Fuentes"]},
-        {categoria:'Ropa', etiquetas:['Camperas', 'Remeras', 'Camisas', 'Gorras', 'Buzos', 'Zapatillas', 'Pantalones']}
-    ]
+    const { getTabla} = useDatabase()
+    const [categorias, setCategorias] = useState<any>([]);
+
+    useEffect(()=>{
+        getTabla('categorias', '*').then((res:any)=>{
+            setCategorias(res)
+        })
+    },[])
 
     return (
         <div className='container-categorias'>
             <p className='titulo inter'>Categorías</p>
-            {res.map((item:any)=>(
+            {categorias.map((item:any)=>(
                 <details key={item.categoria} className='container-etiquetas' open={true}>
                     
                     <summary className='inter'>{item.categoria}
@@ -24,7 +30,7 @@ export default function Categorias() {
                         key={etiqueta}
                         className='link'
                         to={`/productos/${item.categoria}/${etiqueta}`}>
-                            <p className='inter'>{etiqueta}</p>
+                            <p className='inter' onClick={()=>{localStorage.setItem('categoria',item.categoria); localStorage.setItem('subCategoria',etiqueta)}}>{etiqueta}</p>
                         </Link>
                     ))}
                 </details>

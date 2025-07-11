@@ -14,6 +14,7 @@ type Props = {
 interface DatabaseContextType {
     getUno : (tabla:string, select:string, id:number) => Promise<false | any[]>;
     getTabla : (tabla:string, columna:string) => Promise<false | any[]>;
+    getByCategoria : (tabla:string, columna:string, categoria:any, subCategoria:any) => Promise<false | any[]>;
 
     altaDB : (tabla:string, datos : any) => Promise<boolean | any[]>;
     bajaDB : (tabla:string, id : number) => Promise<boolean>;
@@ -52,6 +53,32 @@ export const DatabaseProvider = ({ children }: Props) => {
         
         console.error(error);
 
+        return false;
+
+    } 
+
+    const getByCategoria = async (tabla:string, columna:string = '*', categoria:any, subcateoria:any) => {
+
+        let data:any;
+
+        
+        if (subcateoria != "") {
+            data = (await supabase
+            .from(tabla)
+            .select(columna)
+            .eq('categoria', categoria)
+            .eq('subCategoria',subcateoria)).data
+        }else{
+            data = (await supabase
+            .from(tabla)
+            .select(columna)
+            .eq('categoria', categoria)).data
+        }
+                
+        if (data) {
+            return data;
+        }
+        
         return false;
 
     } 
@@ -106,6 +133,7 @@ export const DatabaseProvider = ({ children }: Props) => {
         value={{
             getUno,
             getTabla,
+            getByCategoria,
             altaDB,
             bajaDB,
             update
