@@ -12,15 +12,16 @@ export default function Categorias() {
         <div className='container-categorias'>
             <p className='titulo inter'>Categorías</p>
             {res.map((item:any)=>(
-                <details className='container-etiquetas' open={true}>
+                <details key={item.categoria} className='container-etiquetas' open={true}>
                     
                     <summary className='inter'>{item.categoria}
                         <span className="icon">
-                            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>
+                            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'><path fillRule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>
                         </span>
                     </summary>
                     {item.etiquetas.map((etiqueta:string)=>(
                         <Link
+                        key={etiqueta}
                         className='link'
                         to={`/productos/${item.categoria}/${etiqueta}`}>
                             <p className='inter'>{etiqueta}</p>

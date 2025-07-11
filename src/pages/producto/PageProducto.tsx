@@ -35,15 +35,17 @@ export default function PageProducto() {
             <h1 className='inter'>Características</h1>
             <div className='container-caracteristicas'>
                 <table>
-                    {caracterisiticas.map((item:any, i=0)=>(i++,
-                        <>
-                        <tr className={i%2 != 0 ? 'gris' : ''}>
-                            <td className='label'>{item.label}</td>
-                            <td className='car'>{item.car}</td>
-                        </tr>
-                        </>
-                        
-                    ))}
+                    <tbody>
+                        {caracterisiticas.map((item:any, i=0)=>(i++,
+                            <>
+                            <tr className={i%2 != 0 ? 'gris' : ''}>
+                                <td className='label'>{item.label}</td>
+                                <td className='car'>{item.car}</td>
+                            </tr>
+                            </>
+                            
+                        ))}
+                    </tbody>
                 </table>
             </div>
 

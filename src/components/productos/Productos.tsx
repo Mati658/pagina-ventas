@@ -19,7 +19,7 @@ export default function Productos({titulo, productos}: Props) {
             <div className='container-productos'>
                 <div className='fila-producto'>
                     {res && res.map(item=>(
-                        <img src={item} className='img-prodcuto'/>
+                        <img key={item} src={item} className='img-prodcuto'/>
                     ))}
                 </div>
             </div>

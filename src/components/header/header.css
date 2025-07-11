@@ -69,9 +69,7 @@
     flex-direction: row-reverse;
     align-items: center;
 
-    .perfil,
-    .carrito,
-    .admin {
+    .icon {
       height: 30px;
       width: 30px;
     }

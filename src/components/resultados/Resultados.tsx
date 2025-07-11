@@ -16,8 +16,8 @@ export default function Resultados({titulo, productos}: Props) {
         <div className='productos'>
             {res.map((item:any)=>(
                 <>
-                    <span className='line'></span>
-                    <Producto producto={item}></Producto>
+                    <span key={item.id} className='line'></span>
+                    <Producto key={item.id} producto={item}></Producto>
                 </>
             ))}
         </div>

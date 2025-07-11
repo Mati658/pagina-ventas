@@ -2,9 +2,9 @@ import { createContext, ReactNode, useContext } from "react"
 import { createClient } from "@supabase/supabase-js";
 
 // =================================================PROD==============================================
-const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY);
+// const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY);
 // ==================================================DEV==============================================
-// import { environment } from '../../env/environment.prod';const supabase = createClient(environment.VITE_SUPABASE_URL, environment.VITE_SUPABASE_KEY);
+import { environment } from '../../env/environment.prod';const supabase = createClient(environment.VITE_SUPABASE_URL, environment.VITE_SUPABASE_KEY);
 type Props = {
     children:ReactNode,
 }
@@ -43,8 +43,10 @@ export default function StorageProvider({ children }: Props) {
               cacheControl: '2592000'
       })
       
-      if (error) 
-          return false;
+      if (error){
+        console.log(error)
+        return false;
+      }
       // console.log(data)
 
       return getFoto(data?.path);

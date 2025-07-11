@@ -1,4 +1,3 @@
-
 import { lazy, Suspense } from 'react'
 import './App.css'
 import {  BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
@@ -7,6 +6,9 @@ import PageProductos from './pages/productos/PageProductos';
 import PageProducto from './pages/producto/PageProducto';
 import Perfil from './pages/perfil/Perfil';
 import Admin from './pages/admin/Admin';
+import Alta from './pages/alta/Alta';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 
 function App() {
 
@@ -25,6 +27,9 @@ function App() {
             <Route path="/productos/:categoria" element={<PageProductos />} />
             <Route path="/perfil" element={<Perfil />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/alta" element={<Alta />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/registro" element={<Register />} />
             
             {/* agregar el id en el path */}
             <Route path="/producto/:prod" element={<PageProducto />} />
