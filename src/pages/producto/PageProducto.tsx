@@ -61,7 +61,7 @@ export default function PageProducto() {
                 <div className='gap'></div>
                 <span className='line'></span>
                 <h1 className='inter'>Productos relacionados</h1>
-                <Productos titulo='' productos='recomendados'></Productos>
+                <Productos titulo='' productos={[]}></Productos>
 
 
             </div>
