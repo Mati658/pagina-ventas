@@ -22,4 +22,20 @@
   margin-top: 15vh;
   justify-self: center;
   gap: 5%;
+
+  button {
+    background: rgb(211, 0, 74);
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 20vh;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 50px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: rgb(141, 0, 0);
+  }
 }

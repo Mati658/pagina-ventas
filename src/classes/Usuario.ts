@@ -1,24 +1,40 @@
 export class Usuario {
-  id: number;
+  private id: any;
   nombre: string;
+  apellido: string;
   mail: string;
-  password: string;
   historial: any[];
   favs: number[];
 
   constructor(
-    id: number,
     nombre: string,
+    apellido: string,
     mail: string,
-    password: string,
     historial: any[],
     favs: number[]
   ) {
-    this.id = id;
     this.nombre = nombre;
+    this.apellido = apellido;
     this.mail = mail;
-    this.password = password;
     this.historial = historial;
     this.favs = favs;
+  }
+
+  public get Id(): number {
+    return this.id;
+  }
+
+  public set Id(v: number) {
+    this.id = v;
+  }
+
+  toJson() {
+    return {
+      nombre: this.nombre,
+      apellido: this.apellido,
+      mail: this.mail,
+      historial: this.historial,
+      favs: this.favs,
+    };
   }
 }

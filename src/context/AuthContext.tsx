@@ -3,9 +3,10 @@ import { createClient } from '@supabase/supabase-js';
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 // =================================================PROD==============================================
-const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY);
+// const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY);
 // ==================================================DEV==============================================
-// import { environment } from '../../env/environment.prod'; const supabase = createClient(environment.VITE_SUPABASE_URL, environment.VITE_SUPABASE_KEY);
+import { environment } from '../../env/environment.prod';import { Usuario } from '../classes/Usuario';
+ const supabase = createClient(environment.VITE_SUPABASE_URL, environment.VITE_SUPABASE_KEY);
 
 type Props = {
     children:ReactNode,
@@ -14,28 +15,31 @@ type Props = {
 interface AuthContextType {
     usuario: any;
     login:(email:string,password:string) => Promise<boolean>;
+    register:(usuario:Usuario,password:string) =>Promise<boolean>;
     signOut: () => Promise<void>;
+    getState:() => Promise<boolean>;
+    decodeJWT:(token:string) => {header:any, payload:any};
     flagLogin:boolean;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export const AuthProvider = ({ children }: Props) => {
-  const [usuario, setUsuario] = useState(null);
+  const [usuario, setUsuario] = useState<any>(null);
   const [flagLogin, setFlagLogin] = useState(false);
 
   const getState = async () => {
     const { data } = await supabase.auth.getUserIdentities();
     const identity : any = data?.identities?.[0];
-
+    console.log(identity)
     if (identity) {
-      localStorage.setItem('usuario', identity.email);
       setUsuario(identity);
       setFlagLogin(true);
       // console.log("AAAAAAAAAAAAAAAAAAAAAAAAA")
-      return;
+      return true;
     }
     setFlagLogin(false);
+    return false
   };
 
   const login = async (email:string, password:string) =>{    
@@ -49,6 +53,23 @@ export const AuthProvider = ({ children }: Props) => {
     
     // console.log(data.user?.email)
     if (data.user?.email) {
+      getState();
+    }
+    return true;
+  }
+
+  const register = async (usuario:Usuario, password:string) =>{    
+    let { data, error } = await supabase.auth.signUp({
+      email: usuario.mail,
+      password: password,
+    })
+    if (error) {
+      return false;
+    }
+    
+    // console.log(data.user?.email)
+
+    if (data.user?.email) {
       localStorage.setItem('usuario', data.user.email);
     }
     return true;
@@ -60,17 +81,29 @@ export const AuthProvider = ({ children }: Props) => {
     window.location.reload();
   };
 
-  useEffect(() => {
-    if (!localStorage.getItem('usuario')) {
-      getState();
+  const decodeJWT = (token:string) =>{
+    const partes = token.split('.');
+    if(partes.length != 3){
+      throw new Error("Token inválido!!");
     }
+    const header = JSON.parse(atob(partes[0]))
+    const payload = JSON.parse(atob(partes[1]))
+    setUsuario({header,payload})
+    return {header,payload}
+  }
+
+  useEffect(() => {
+    getState();
   }, []);
 
   return (
     <AuthContext.Provider
       value={{
         usuario,
+        getState,
         login,
+        register,
+        decodeJWT,
         signOut,
         flagLogin
       }}

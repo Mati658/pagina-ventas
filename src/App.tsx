@@ -14,7 +14,6 @@ function App() {
 
   const Home = lazy(()=>import('./pages/home/Home'));
 
-
   return (
    <>
     <div className="app">
