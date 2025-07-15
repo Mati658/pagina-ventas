@@ -16,6 +16,9 @@ export default function Login() {
 
     useEffect(()=>{
         verificarUsuario();
+
+        console.log(import.meta.env.VITE_GOOGLE_ID_CLIENTE)
+        console.log(import.meta.env.VITE_SUPABASE_URL)
     },[])
 
     const verificarUsuario = async() =>{
