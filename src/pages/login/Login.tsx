@@ -51,8 +51,8 @@ export default function Login() {
 
     return (
         <>
-        {import.meta.env.GOOGLE_ID_CLIENTE &&
-            <GoogleOAuthProvider clientId={import.meta.env.GOOGLE_ID_CLIENTE}>
+        {import.meta.env.VITE_GOOGLE_ID_CLIENTE &&
+            <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_ID_CLIENTE}>
                 <div className='container-page-login'>
 
                     <dialog ref={dialogRef} className='msj-error'>
