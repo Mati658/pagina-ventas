@@ -3,11 +3,11 @@ import './productos.css'
 
 type Props = {
     titulo:string,
-    productos:string,
+    productos:any[],
 }
 
 export default function Productos({titulo, productos}: Props) {
-    let res = ["/temp/1.png", "/temp/2.png", "/temp/3.png"] //Obtener la lista de productos con el string de productos
+    // let res = ["/temp/1.png", "/temp/2.png", "/temp/3.png"] //Obtener la lista de productos con el string de productos
     return (
         <div className='productos'>
             <div className='container-text'>
@@ -18,8 +18,8 @@ export default function Productos({titulo, productos}: Props) {
             </div>  
             <div className='container-productos'>
                 <div className='fila-producto'>
-                    {res && res.map(item=>(
-                        <img key={item} src={item} className='img-prodcuto'/>
+                    {productos && productos.map((item:any)=>(
+                        <img key={item.id} src={item} className='img-prodcuto'/>
                     ))}
                 </div>
             </div>
