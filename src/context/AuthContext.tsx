@@ -1,4 +1,5 @@
 // src/context/AuthContext.jsx
+import { Usuario } from '../classes/Usuario';
 import { createClient } from '@supabase/supabase-js';
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
@@ -6,7 +7,6 @@ import { createContext, ReactNode, useContext, useEffect, useState } from 'react
 const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY);
 // ==================================================DEV==============================================
 // import { environment } from '../../env/environment.prod'; const supabase = createClient(environment.VITE_SUPABASE_URL, environment.VITE_SUPABASE_KEY);
-import { Usuario } from '../classes/Usuario';
 
 type Props = {
     children:ReactNode,
@@ -15,6 +15,7 @@ type Props = {
 interface AuthContextType {
     usuario: any;
     login:(email:string,password:string) => Promise<boolean>;
+    loginWithGoogle:() => Promise<boolean>;
     register:(usuario:Usuario,password:string) =>Promise<boolean>;
     signOut: () => Promise<void>;
     getState:() => Promise<boolean>;
@@ -48,11 +49,27 @@ export const AuthProvider = ({ children }: Props) => {
       password: password
     })
     if (error) {
+      console.log(error)
       return false;
     }
     
     // console.log(data.user?.email)
     if (data.user?.email) {
+      getState();
+    }
+    return true;
+  }
+
+  const loginWithGoogle = async () =>{    
+    let { data, error } = await supabase.auth.signInWithOAuth({
+          provider: 'google',
+    })
+    if (error) {
+      console.log(error)
+      return false;
+    }
+    
+    if (data.provider) {
       getState();
     }
     return true;
@@ -64,6 +81,7 @@ export const AuthProvider = ({ children }: Props) => {
       password: password,
     })
     if (error) {
+      console.log(error)
       return false;
     }
     
@@ -102,6 +120,7 @@ export const AuthProvider = ({ children }: Props) => {
         usuario,
         getState,
         login,
+        loginWithGoogle,
         register,
         decodeJWT,
         signOut,

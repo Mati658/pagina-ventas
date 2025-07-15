@@ -34,7 +34,7 @@ export default function Register() {
             abrirModal();
             return
         }
-        const User = new Usuario(nombre, apellido, email, [], [])
+        const User = new Usuario(`${nombre} ${apellido}` , email, [], [])
 
         const res : boolean = await register(User, password);
 

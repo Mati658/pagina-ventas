@@ -12,7 +12,7 @@ type Props = {
 }
 
 interface DatabaseContextType {
-    getUno : (tabla:string, select:string, id:number) => Promise<false | any[]>;
+    getUno : (tabla:string, select:string, propiedad:string, id:number) => Promise<false | any[]>;
     getTabla : (tabla:string, columna:string) => Promise<false | any[]>;
     getByCategoria : (tabla:string, columna:string, categoria:any, subCategoria:any) => Promise<false | any[]>;
 
@@ -25,12 +25,12 @@ const DatabaseContext = createContext<DatabaseContextType | null>(null);
 
 export const DatabaseProvider = ({ children }: Props) => {
 
-    const getUno = async (tabla:string, select:string, id:number)=>{
+    const getUno = async (tabla:string, select:string, propiedad:string, id:number)=>{
         // console.log(id)
         const data = (await supabase
         .from(tabla)
         .select(select)
-        .eq('id', id)).data
+        .eq(propiedad, id)).data
 
         if (data) {
             return data;

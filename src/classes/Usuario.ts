@@ -1,20 +1,12 @@
 export class Usuario {
   private id: any;
   nombre: string;
-  apellido: string;
   mail: string;
   historial: any[];
   favs: number[];
 
-  constructor(
-    nombre: string,
-    apellido: string,
-    mail: string,
-    historial: any[],
-    favs: number[]
-  ) {
+  constructor(nombre: string, mail: string, historial: any[], favs: number[]) {
     this.nombre = nombre;
-    this.apellido = apellido;
     this.mail = mail;
     this.historial = historial;
     this.favs = favs;
@@ -31,7 +23,6 @@ export class Usuario {
   toJson() {
     return {
       nombre: this.nombre,
-      apellido: this.apellido,
       mail: this.mail,
       historial: this.historial,
       favs: this.favs,

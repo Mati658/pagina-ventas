@@ -12,7 +12,7 @@ export default function PageProducto() {
     const [producto, setProducto] = useState<any>();
 
     useEffect(()=>{
-        getUno('productos', '*', id).then((res:any)=>{
+        getUno('productos', '*', 'id', id).then((res:any)=>{
             setProducto(res[0])
         })
     },[])
